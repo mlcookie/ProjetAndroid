@@ -34,6 +34,26 @@ data class Product(
 
             return productService.getProductById(id)
         }
+        suspend fun getAllProducts(): List<Product> {
+            val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            }
+
+            val client = OkHttpClient.Builder()
+                .addInterceptor(httpLoggingInterceptor)
+                .build()
+
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://fakestoreapi.com/")
+                .addConverterFactory(MoshiConverterFactory.create())
+                .client(client)
+                .build()
+
+            val productService = retrofit.create(ProductService::class.java)
+
+            return productService.getAllProducts()
+        }
+
     }
 }
 

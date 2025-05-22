@@ -17,12 +17,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        externalNativeBuild {
-            cmake {
-                cppFlags += ""
-            }
-        }
-    }
+
 
     buildTypes {
         release {
@@ -38,7 +33,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
+    }
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -47,12 +42,6 @@ android {
         compose = true
     }
 
-    externalNativeBuild {
-        cmake {
-            path = file("src/main/cpp/CMakeLists.txt")
-            version = "3.22.1"
-        }
-    }
 
     // 🔧 Correction des conflits META-INF (Netty, HttpClient, etc.)
     packaging {
