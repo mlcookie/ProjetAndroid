@@ -17,7 +17,6 @@ class ListProductActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var searchField: EditText
     private lateinit var searchButton: ImageButton
-    private lateinit var cartButton: ImageButton
 
     private lateinit var adapter: ProductAdapter
     private var allProducts: List<Product> = listOf()
@@ -29,7 +28,6 @@ class ListProductActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.product_recycler_view)
         searchField = findViewById(R.id.search_field)
         searchButton = findViewById(R.id.search_button)
-        cartButton = findViewById(R.id.cart_button)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = ProductAdapter(emptyList()) { product ->
@@ -52,8 +50,5 @@ class ListProductActivity : AppCompatActivity() {
             adapter.updateProducts(filtered)
         }
 
-        cartButton.setOnClickListener {
-            Toast.makeText(this, "Panier à implémenter 😄", Toast.LENGTH_SHORT).show()
-        }
     }
 }

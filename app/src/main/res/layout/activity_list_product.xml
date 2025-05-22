@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Zone de recherche -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +15,12 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:hint="Rechercher un produit..." />
+            android:minHeight="48dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:hint="Recherchez..."
+            android:inputType="text" />
+
 
         <ImageButton
             android:id="@+id/search_button"
@@ -25,12 +29,6 @@
             android:src="@android:drawable/ic_menu_search"
             android:contentDescription="Rechercher" />
 
-        <ImageButton
-            android:id="@+id/cart_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_compass"
-            android:contentDescription="Panier" />
     </LinearLayout>
 
     <!-- Liste de produits -->

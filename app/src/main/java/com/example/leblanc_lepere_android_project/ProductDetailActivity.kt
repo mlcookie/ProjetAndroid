@@ -2,6 +2,7 @@ package com.example.leblanc_lepere_android_project
 
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -45,5 +46,15 @@ class ProductDetailActivity : AppCompatActivity() {
                 descriptionView.text = e.localizedMessage
             }
         }
+        val backButton = findViewById<Button>(R.id.button_back)
+        val addToCartButton = findViewById<Button>(R.id.button_add_to_cart)
+
+        backButton.setOnClickListener {
+            finish()
+        }
+
+        addToCartButton.setOnClickListener {
+        }
+
     }
 }
