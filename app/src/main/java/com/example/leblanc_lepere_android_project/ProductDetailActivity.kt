@@ -1,6 +1,5 @@
 package com.example.leblanc_lepere_android_project
 
-
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -19,7 +18,7 @@ class ProductDetailActivity : AppCompatActivity() {
 
         val productId = intent.getIntExtra("PRODUCT_ID", -1)
         if (productId == -1) {
-            finish() // Pas d'ID => on quitte
+            finish()
             return
         }
 
@@ -28,6 +27,8 @@ class ProductDetailActivity : AppCompatActivity() {
         val categoryView = findViewById<TextView>(R.id.product_category)
         val priceView = findViewById<TextView>(R.id.product_price)
         val descriptionView = findViewById<TextView>(R.id.product_description)
+        val backButton = findViewById<Button>(R.id.button_back)
+        val addToCartButton = findViewById<Button>(R.id.button_add_to_cart)
 
         lifecycleScope.launch {
             try {
@@ -42,19 +43,17 @@ class ProductDetailActivity : AppCompatActivity() {
                     .into(imageView)
 
             } catch (e: Exception) {
-                titleView.text = "Erreur de chargement"
-                descriptionView.text = e.localizedMessage
+                titleView.text = "Erreur : Produit introuvable"
+                descriptionView.text = "ID : $productId\n${e.localizedMessage}"
             }
         }
-        val backButton = findViewById<Button>(R.id.button_back)
-        val addToCartButton = findViewById<Button>(R.id.button_add_to_cart)
 
         backButton.setOnClickListener {
             finish()
         }
 
         addToCartButton.setOnClickListener {
+            // TODO : Ajouter le produit au panier
         }
-
     }
 }

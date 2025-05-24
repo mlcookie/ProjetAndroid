@@ -38,9 +38,19 @@ class ListProductActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         lifecycleScope.launch {
-            allProducts = Product.getAllProducts()
-            adapter.updateProducts(allProducts)
+            try {
+                allProducts = Product.getAllProducts()
+                adapter.updateProducts(allProducts)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(
+                    this@ListProductActivity,
+                    "Failed to load products. Check your internet connection.",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
+
 
         searchButton.setOnClickListener {
             val query = searchField.text.toString()

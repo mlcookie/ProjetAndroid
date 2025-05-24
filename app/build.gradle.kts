@@ -89,6 +89,9 @@ dependencies {
     // OkHttp (logging)
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
+    implementation("me.dm7.barcodescanner:zxing:1.9") {
+        exclude(group = "com.android.support", module = "support-v4")
+    }
     // Tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

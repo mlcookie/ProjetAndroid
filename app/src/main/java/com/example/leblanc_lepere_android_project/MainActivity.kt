@@ -29,6 +29,10 @@ class MainActivity : ComponentActivity() {
                             val intent = Intent(this, ListProductActivity::class.java)
                             startActivity(intent)
                         },
+                        onGoToQRScanner = {
+                            val intent = Intent(this, QRScanActivity::class.java)
+                            startActivity(intent)
+                        },
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -38,7 +42,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(onGoToProductList: () -> Unit, modifier: Modifier = Modifier) {
+fun MainScreen(onGoToProductList: () -> Unit,
+               onGoToQRScanner: () -> Unit,
+               modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -46,8 +52,6 @@ fun MainScreen(onGoToProductList: () -> Unit, modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // 🔁 Facultatif : une image/logo (remplace R.drawable.logo par le tien)
-        // Image(painter = painterResource(id = R.drawable.logo), contentDescription = "Logo")
 
         Text(
             text = "Bienvenue !",
@@ -58,7 +62,7 @@ fun MainScreen(onGoToProductList: () -> Unit, modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Explore notre boutique en ligne 🛒",
+            text = "Explorez notre boutique en ligne 🛒",
             fontSize = 18.sp,
             color = MaterialTheme.colorScheme.primary
         )
@@ -68,5 +72,12 @@ fun MainScreen(onGoToProductList: () -> Unit, modifier: Modifier = Modifier) {
         Button(onClick = onGoToProductList) {
             Text("Voir la liste des produits")
         }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Button(onClick = onGoToQRScanner) {
+            Text("Scanner un QR Code 📷")
+        }
+
     }
 }
