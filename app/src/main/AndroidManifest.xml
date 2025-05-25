@@ -32,6 +32,11 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:exported="true" />
 
+        <activity
+            android:name=".CartActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true" />
+
     </application>
 
 </manifest>
