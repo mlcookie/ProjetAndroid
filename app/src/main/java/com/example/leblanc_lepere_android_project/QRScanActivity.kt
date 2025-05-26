@@ -20,8 +20,6 @@ import okhttp3.Request
 import android.os.VibrationEffect
 import android.os.Vibrator
 
-
-
 class QRScanActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
     private lateinit var scannerView: ZXingScannerView
@@ -87,8 +85,6 @@ class QRScanActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         }
     }
 
-
-
     override fun handleResult(rawResult: Result?) {
         val scannedUrl = rawResult?.text
         Log.d("QRScan", "Texte scanné : $scannedUrl")
@@ -99,7 +95,6 @@ class QRScanActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
             @Suppress("DEPRECATION")
             vibrator.vibrate(150)
         }
-
 
         if (scannedUrl != null) {
             lifecycleScope.launch {
@@ -124,7 +119,4 @@ class QRScanActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
             scannerView.resumeCameraPreview(this)
         }
     }
-
-
-
 }

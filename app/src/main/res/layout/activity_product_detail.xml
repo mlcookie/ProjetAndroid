@@ -77,5 +77,18 @@
                 android:layout_marginStart="8dp" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/shareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Partager"
+            android:drawableStart="@android:drawable/ic_menu_share"
+            android:padding="8dp"
+            android:backgroundTint="#009688"
+            android:textColor="@android:color/white"
+            android:layout_margin="16dp"
+            android:drawablePadding="8dp"
+            android:layout_gravity="center_horizontal"/>
+
     </LinearLayout>
 </ScrollView>

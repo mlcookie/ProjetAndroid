@@ -54,6 +54,7 @@ class ProductDetailActivity : AppCompatActivity() {
             finish()
         }
 
+
         addToCartButton.setOnClickListener {
             CartManager.addProduct(productId)
 
@@ -111,6 +112,17 @@ class ProductDetailActivity : AppCompatActivity() {
             val intent = Intent (this, CartActivity::class.java)
             startActivity(intent)*/
         }
+        val shareButton = findViewById<Button>(R.id.shareButton)
+
+        shareButton.setOnClickListener {
+            val productUrl = "https://fakestoreapi.com/products/$productId"  // ou une URL plus adaptée
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, "Regarde ce produit : $productUrl")
+            }
+            startActivity(Intent.createChooser(shareIntent, "Partager via"))
+        }
+
 
     }
 }
