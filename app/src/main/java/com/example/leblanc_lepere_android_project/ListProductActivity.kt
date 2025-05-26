@@ -8,6 +8,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,9 +47,18 @@ class ListProductActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         lifecycleScope.launch {
-            allProducts = Product.getAllProducts()
-            currentFilteredProducts = allProducts
-            adapter.updateProducts(allProducts)
+            try {
+                allProducts = Product.getAllProducts()
+                currentFilteredProducts = allProducts
+                adapter.updateProducts(allProducts)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(
+                    this@ListProductActivity,
+                    "Failed to load products. Check your internet connection.",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
 
         searchButton.setOnClickListener {
