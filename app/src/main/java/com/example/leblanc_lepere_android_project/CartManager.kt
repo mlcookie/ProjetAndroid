@@ -21,4 +21,7 @@ object CartManager {
     fun removeProduct(productId: Int) {
         cartProducts.removeIf { it.productId == productId }
     }
+
+    fun clearCart() {
+        cartProducts.clear()    }
 }

@@ -1,5 +1,8 @@
 package com.example.leblanc_lepere_android_project
 
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -57,11 +60,19 @@ class ProductDetailActivity : AppCompatActivity() {
 
         addToCartButton.setOnClickListener {
             CartManager.addProduct(productId)
-
+            val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                vibrator.vibrate(
+                    VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE)
+                )
+            } else {
+                vibrator.vibrate(150)
+            }
             Toast.makeText(
                 this@ProductDetailActivity,
                 "Produit ajouté au panier",
                 Toast.LENGTH_SHORT
+
             ).show()
 
             val intent = Intent(this, CartActivity::class.java)

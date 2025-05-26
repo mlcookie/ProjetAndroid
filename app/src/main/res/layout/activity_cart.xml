@@ -46,6 +46,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/clear_cart_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#009688"
+            android:text="Vider le panier"/>
+        <Button
             android:id="@+id/checkout_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:backgroundTint="#009688"
-            android:text="Retour aux produits"/>
+            android:text="Retour"/>
     </LinearLayout>
 
 

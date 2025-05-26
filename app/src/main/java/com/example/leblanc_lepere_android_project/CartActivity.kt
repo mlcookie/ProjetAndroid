@@ -19,6 +19,8 @@ class CartActivity : AppCompatActivity(){
     private lateinit var totalPrice: TextView
     private lateinit var checkoutButton: Button
     private lateinit var backToProductButton: Button
+    private lateinit var clearCartButton: Button
+
 
     private lateinit var adapter: CartAdapter
     private var cartProducts: List<Product> = listOf()
@@ -33,6 +35,8 @@ class CartActivity : AppCompatActivity(){
         totalPrice = findViewById(R.id.total_price)
         checkoutButton = findViewById(R.id.checkout_button)
         backToProductButton = findViewById(R.id.back_to_product_button)
+        clearCartButton = findViewById(R.id.clear_cart_button)
+
 
         cartRecyclerView.layoutManager = LinearLayoutManager(this)
         adapter = CartAdapter(emptyList()) {
@@ -70,6 +74,14 @@ class CartActivity : AppCompatActivity(){
             val intent = Intent(this, ListProductActivity::class.java)
             startActivity(intent)
         }
+
+        clearCartButton.setOnClickListener {
+            lifecycleScope.launch {
+                CartManager.clearCart()
+                updateCartDisplay()
+            }
+        }
+
     }
 
     private fun updateCartDisplay() {
