@@ -17,6 +17,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import android.os.VibrationEffect
+import android.os.Vibrator
+
 
 
 class QRScanActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
@@ -89,6 +92,14 @@ class QRScanActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     override fun handleResult(rawResult: Result?) {
         val scannedUrl = rawResult?.text
         Log.d("QRScan", "Texte scanné : $scannedUrl")
+        val vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            vibrator.vibrate(VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            @Suppress("DEPRECATION")
+            vibrator.vibrate(150)
+        }
+
 
         if (scannedUrl != null) {
             lifecycleScope.launch {
