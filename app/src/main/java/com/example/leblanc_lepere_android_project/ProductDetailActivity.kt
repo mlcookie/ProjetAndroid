@@ -115,7 +115,7 @@ class ProductDetailActivity : AppCompatActivity() {
         val shareButton = findViewById<Button>(R.id.shareButton)
 
         shareButton.setOnClickListener {
-            val productUrl = "https://fakestoreapi.com/products/$productId"  // ou une URL plus adaptée
+            val productUrl = "https://fakestoreapi.com/products/$productId"
             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, "Regarde ce produit : $productUrl")
