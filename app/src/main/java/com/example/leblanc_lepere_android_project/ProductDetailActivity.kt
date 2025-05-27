@@ -77,51 +77,6 @@ class ProductDetailActivity : AppCompatActivity() {
 
             val intent = Intent(this, CartActivity::class.java)
             startActivity(intent)
-            /*val userId = 1
-            val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                .format(java.util.Date())
-
-            lifecycleScope.launch {
-                try {
-                    val existingCart = try {
-                        Cart.getCartById(userId)
-                    } catch (e: Exception) {
-                        null
-                    }
-                    val updatedProducts = existingCart?.products?.toMutableList() ?: mutableListOf()
-                    val existingProduct = updatedProducts.find { it.productId == productId }
-                    if (existingProduct != null) {
-                        val updatedProduct =
-                            existingProduct.copy(quantity = existingProduct.quantity + 1)
-                        updatedProducts.remove(existingProduct)
-                        updatedProducts.add(updatedProduct)
-                    } else {
-                        updatedProducts.add(CartProduct(productId, 1))
-                    }
-
-                    val newCart = Cart(userId = userId, date = date, products = updatedProducts)
-                    if (existingCart != null) {
-                        Cart.updateCart(existingCart.userId, newCart)
-                    } else {
-                        Cart.createCart(newCart)
-                    }
-
-                    Toast.makeText(
-                        this@ProductDetailActivity,
-                        "Produit ajouté au panier",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                } catch (e: Exception) {
-                    Toast.makeText(
-                        this@ProductDetailActivity,
-                        "Erreur : ${e.localizedMessage}",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
-            val intent = Intent (this, CartActivity::class.java)
-            startActivity(intent)*/
         }
         val shareButton = findViewById<Button>(R.id.shareButton)
 
