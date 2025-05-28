@@ -65,6 +65,7 @@ class CartActivity : AppCompatActivity(){
                 cartRecyclerView.visibility = View.GONE
                 totalPrice.visibility = View.GONE
                 checkoutButton.visibility = View.GONE
+                clearCartButton.visibility = View.GONE
             } else {
                 emptyCartText.visibility = View.GONE
             }
@@ -108,6 +109,7 @@ class CartActivity : AppCompatActivity(){
                 totalPrice.visibility = View.GONE
                 checkoutButton.visibility = View.GONE
                 emptyCartText.visibility = View.VISIBLE
+                clearCartButton.visibility = View.GONE
             } else {
                 cartRecyclerView.visibility = View.VISIBLE
                 totalPrice.visibility = View.VISIBLE
