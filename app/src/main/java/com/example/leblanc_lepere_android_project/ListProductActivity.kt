@@ -23,6 +23,8 @@ class ListProductActivity : AppCompatActivity() {
     private lateinit var searchButton: ImageButton
     private lateinit var sortingButton: Button
     private lateinit var cartButton: ImageButton
+    private lateinit var scanButton: Button
+
 
     private lateinit var adapter: ProductAdapter
     private var allProducts: List<Product> = listOf()
@@ -37,6 +39,7 @@ class ListProductActivity : AppCompatActivity() {
         searchButton = findViewById(R.id.search_button)
         sortingButton = findViewById(R.id.sorting_button)
         cartButton = findViewById(R.id.cart_button)
+        scanButton = findViewById(R.id.qrCode)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = ProductAdapter(emptyList()) { product ->
@@ -126,6 +129,10 @@ class ListProductActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        scanButton.setOnClickListener(){
+            val intent = Intent(this, QRScanActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

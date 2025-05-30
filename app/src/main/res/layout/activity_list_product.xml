@@ -51,6 +51,12 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#009688"
             android:text="Trier la recherche" />
+        <Button
+            android:id="@+id/qrCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#009688"
+            android:text="Scan Produit" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
