@@ -32,7 +32,7 @@ git clone git@github.com:mlcookie/ProjetAndroid.git
 * Partager un produit
 
 # Documentation :
-Pour plus de précision sur l'utilisation de cette app vous pouvez consulter notre :books: [documentation](https://github.com/mlcookie/ProjetAndroid#).
+Pour plus de précision sur l'utilisation de cette app vous pouvez consulter notre :books: [documentation](https://github.com/mlcookie/ProjetAndroid/blob/main/Guide_Utilisateur.pdf).
 
 # Développeuses :
 * Marianne LEPERE - marianne.lepere@epfedu.fr
